@@ -1,7 +1,10 @@
 {
-    "java.project.sourcePaths": ["src"],
+    "java.project.sourcePaths": [
+        "src"
+    ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "c:\\Users\\ander\\Documents\\Programas\\IFC\\PO2\\src\\Atividades\\dependencia\\lib\\mysql-connector-j-8.1.0.jar"
     ]
 }

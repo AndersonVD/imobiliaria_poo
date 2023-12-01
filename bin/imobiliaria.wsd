@@ -18,7 +18,6 @@ class Imobiliaria {
     + listarClientes(): void
     + buscarImovel(): void
     + buscarCliente(): void
-    + autenticar(): void
 }
 
 
@@ -29,7 +28,7 @@ class Imovel {
     - valor: Double
     - area: Double
     - descricao: String
-    - status: String
+    - disponivel: String
     - listaFotos: List<Foto>
     + cadastrarFoto(): void
     + removerFoto(): void
@@ -51,7 +50,6 @@ class Cliente {
     - telefone: String
     - email: String
     - cpf: String
-    - senha: String
     - listaImoveis: List<Imovel>
     + cadastrarImovel(): void
     + removerImovel(): void
@@ -67,24 +65,17 @@ class Funcionario {
     - telefone: String
     - email: String
     - cpf: String
-    - senha: String
-    - cargo: String
     + cadastrarImovel(): void
     + cadastrarCliente(): void
     + cadastrarFuncionario(): void
     + removerImovel(): void
     + removerCliente(): void
-    + removerFuncionario(): void
     + editarImovel(): void
     + editarCliente(): void
-    + editarFuncionario(): void
     + listarImoveis(): void
     + listarClientes(): void
-    + listarFuncionarios(): void
     + buscarImovel(): void
     + buscarCliente(): void
-    + buscarFuncionario(): void
-    + autenticar(): void
 }
 
 
