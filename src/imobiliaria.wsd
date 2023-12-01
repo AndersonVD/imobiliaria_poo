@@ -1,0 +1,89 @@
+@startuml Nome
+
+class Imobiliaria {
+    - nome: String
+    - endereco: String
+    - telefone: String
+    - email: String
+    - cnpj: String
+    - listaImoveis: List<Imovel>
+    - listaClientes: List<Cliente>
+    + cadastrarImovel(): void
+    + cadastrarCliente(): void
+    + removerImovel(): void
+    + removerCliente(): void
+    + editarImovel(): void
+    + editarCliente(): void
+    + listarImoveis(): void
+    + listarClientes(): void
+    + buscarImovel(): void
+    + buscarCliente(): void
+}
+
+
+class Imovel {
+    - codigo: String
+    - endereco: String
+    - tipo: String
+    - valor: Double
+    - area: Double
+    - descricao: String
+    - status: String
+    - listaFotos: List<Foto>
+    + cadastrarFoto(): void
+    + removerFoto(): void
+    + editarFoto(): void
+    + listarFotos(): void
+    + buscarFoto(): void
+}
+
+class Foto {
+    - codigo: String
+    - descricao: String
+    - imagem: String
+}
+
+class Cliente {
+    - codigo: String
+    - nome: String
+    - endereco: String
+    - telefone: String
+    - email: String
+    - cpf: String
+    - senha: String
+    - listaImoveis: List<Imovel>
+    + cadastrarImovel(): void
+    + removerImovel(): void
+    + editarImovel(): void
+    + listarImoveis(): void
+    + buscarImovel(): void
+}
+
+class Funcionario {
+    - codigo: String
+    - nome: String
+    - endereco: String
+    - telefone: String
+    - email: String
+    - cpf: String
+    - senha: String
+    - cargo: String
+    + cadastrarImovel(): void
+    + cadastrarCliente(): void
+    + cadastrarFuncionario(): void
+    + removerImovel(): void
+    + removerCliente(): void
+    + removerFuncionario(): void
+    + editarImovel(): void
+    + editarCliente(): void
+    + editarFuncionario(): void
+    + listarImoveis(): void
+    + listarClientes(): void
+    + listarFuncionarios(): void
+    + buscarImovel(): void
+    + buscarCliente(): void
+    + buscarFuncionario(): void
+}
+
+
+@enduml
