@@ -18,6 +18,16 @@ public class Main {
         Imovel imovel = new Imovel("Imov01", "Rua Principal, 123", "Casa", "Casa com 3 quartos, 2 banheiros e 1 vaga",
                 100.00, 300000.00, true, new ArrayList<Foto>(), bancoDeDados);
 
+        // Testando as funcionalidades da Imobiliaria
+        System.out.println("Testando funcionalidades da Imobiliaria:");
+        imobiliaria.cadastrasImobiliaria(imobiliaria);
+        System.out.println("Imobiliárias cadastradas: " + imobiliaria.listarImobiliarias()); // Listar
+        imobiliaria.setNome("Imobiliaria ABC"); // Editar
+        imobiliaria.editarImobiliaria(imobiliaria); // Editar
+        // imobiliaria.removerImobiliaria(imobiliaria.getCnpj()); // Remover
+        // System.out.println("Imobiliárias após remoção: " +
+        // imobiliaria.listarImobiliarias()); // Listar após remoção
+
         // Testando as funcionalidades do Imovel
         System.out.println("Testando funcionalidades do Imovel:");
         funcionario.cadastrarImovel(imovel); // Cadastrar
@@ -25,7 +35,8 @@ public class Main {
         imovel.setValor(350000.00); // Editar
         funcionario.editarImovel(imovel); // Editar
         // funcionario.removerImovel(imovel.getCodigo()); // Remover
-        System.out.println("Imóveis após remoção: " + imobiliaria.listarImoveis()); // Listar após remoção
+        // System.out.println("Imóveis após remoção: " + imobiliaria.listarImoveis());
+        // // Listar após remoção
 
         // Testando as funcionalidades do Cliente
         System.out.println("\nTestando funcionalidades do Cliente:");
@@ -34,22 +45,18 @@ public class Main {
         cliente.setNome("Carlos Silva Junior"); // Editar
         imobiliaria.editarCliente(cliente); // Editar
         // imobiliaria.removerCliente(cliente.getCpf()); // Remover
-        System.out.println("Clientes após remoção: " + imobiliaria.listarClientes()); // Listar após remoção
+        // System.out.println("Clientes após remoção: " + imobiliaria.listarClientes());
+        // // Listar após remoção
 
         // Testando as funcionalidades do Funcionario
         System.out.println("\nTestando funcionalidades do Funcionario:");
         imobiliaria.cadastrarFuncionario(funcionario); // Cadastrar
-        System.out.println("Funcionários cadastrados: " + imobiliaria.listarFuncionarios());
-        for (Funcionario elemento : imobiliaria.listarFuncionarios()) {
-            System.out.println(elemento);
-        }
-        funcionario.setNome("Ana Santos Junior"); // Editar
+        System.out.println("Funcionários cadastrados: " + imobiliaria.listarFuncionarios()); // Listar
+        funcionario.setNome("Carlos Albertinho"); // Editar
         imobiliaria.editarFuncionario(funcionario); // Editar
-        // imobiliaria.removerFuncionario(funcionario.getCodigo()); // Remover
-        System.out.println("Funcionários após remoção: "); // Listar após remoção
-        for (Funcionario elemento : imobiliaria.listarFuncionarios()) {
-            System.out.println(elemento);
-        }
+        // imobiliaria.removerFuncionario(funcionario.getCpf()); // Remover
+        // System.out.println("Funcionários após remoção: " +
+        // imobiliaria.listarFuncionarios()); // Listar após remoção
 
     }
 }

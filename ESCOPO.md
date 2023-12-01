@@ -4,10 +4,6 @@
 
 Desenvolver um sistema para gerenciamento de imobiliária, permitindo o cadastro e gerenciamento de imóveis, clientes, funcionários e fotos relacionadas aos imóveis. O sistema deve oferecer funcionalidades de CRUD (Create, Read, Update, Delete) para cada uma das entidades mencionadas.
 
-## Estrutura do Projeto
-
-O projeto será desenvolvido em Java, seguindo o modelo de classes fornecido. Abaixo estão listadas as principais classes e suas responsabilidades:
-
 Cliente: representa um cliente da imobiliária. Cada cliente pode ter um ou mais imóveis cadastrados.
 
 Funcionario: representa um funcionário da imobiliária. Cada funcionário pode ter um ou mais imóveis cadastrados.
@@ -15,6 +11,9 @@ Funcionario: representa um funcionário da imobiliária. Cada funcionário pode 
 Imobiliaria: representa a imobiliária. A imobiliária possui uma lista de imóveis e uma lista de clientes.
 
 
+## Estrutura do Projeto
+
+O projeto será desenvolvido em Java. Abaixo estão listadas as principais classes e suas responsabilidades:
 
 ### Classes
 
@@ -69,10 +68,10 @@ O projeto utilizará um banco de dados MySQL para persistir os dados. Uma conex�
 ## Restrições e Funcionalidades Não Incluídas
 
 - Não será implementado o controle de ações realizadas no sistema (logging).
-- Não será incluido a parte de gerenciaomento por parte do locatário do imóvel.
+- Não será incluido a parte de gerenciamento por parte do locatário do imóvel.
 
 
 
 ## Repositório
 
-LINK DO REPOSITORIO
+https://github.com/AndersonVD/imobiliaria_poo

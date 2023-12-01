@@ -13,6 +13,8 @@ public class Imobiliaria {
     private String cnpj;
     private List<Imovel> listaImoveis;
     private List<Cliente> listaClientes;
+    private List<Funcionario> listaFuncionarios;
+
     private BancoDeDados bancoDeDados;
 
     public Imobiliaria(String nome, String endereco, String telefone, String email, String cnpj,
@@ -24,6 +26,7 @@ public class Imobiliaria {
         this.cnpj = cnpj;
         this.listaImoveis = new ArrayList<Imovel>();
         this.listaClientes = listaClientes;
+        this.listaFuncionarios = new ArrayList<Funcionario>();
         this.bancoDeDados = bancoDeDados;
     }
 
@@ -34,12 +37,29 @@ public class Imobiliaria {
         this.telefone = telefone;
         this.email = email;
         this.cnpj = cnpj;
+        this.listaFuncionarios = new ArrayList<Funcionario>();
         this.listaImoveis = new ArrayList<Imovel>();
         this.listaClientes = listaClientes;
     }
 
     public void cadastrarFuncionario(Funcionario funcionario) {
         bancoDeDados.cadastrarFuncionario(funcionario);
+    }
+
+    public void removerImobiliaria(String cnpj) {
+        bancoDeDados.removerImobiliaria(cnpj);
+    }
+
+    public void cadastrasImobiliaria(Imobiliaria imobiliaria) {
+        bancoDeDados.cadastrarImobiliaria(imobiliaria);
+    }
+
+    public List<Imobiliaria> listarImobiliarias() {
+        return bancoDeDados.listarImobiliarias();
+    }
+
+    public void editarImobiliaria(Imobiliaria imobiliaria) {
+        bancoDeDados.editarImobiliaria(imobiliaria);
     }
 
     public List<Funcionario> listarFuncionarios() {
@@ -156,5 +176,13 @@ public class Imobiliaria {
 
     public void setBancoDeDados(BancoDeDados bancoDeDados) {
         this.bancoDeDados = bancoDeDados;
+    }
+
+    public List<Funcionario> getListaFuncionarios() {
+        return listaFuncionarios;
+    }
+
+    public void setListaFuncionarios(List<Funcionario> listaFuncionarios) {
+        this.listaFuncionarios = listaFuncionarios;
     }
 }
