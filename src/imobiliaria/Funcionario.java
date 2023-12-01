@@ -130,4 +130,10 @@ public class Funcionario {
         this.bancoDeDados = bancoDeDados;
     }
 
+    @Override
+    public String toString() {
+        return "Funcionario [codigo=" + codigo + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone
+                + ", email=" + email + ", cpf=" + cpf + ", bancoDeDados=" + bancoDeDados + "]";
+    }
+
 }

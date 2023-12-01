@@ -31,9 +31,13 @@ public class Main {
         // Testando as funcionalidades do Imovel
         System.out.println("Testando funcionalidades do Imovel:");
         funcionario.cadastrarImovel(imovel); // Cadastrar
-        System.out.println("Imóveis cadastrados: " + imobiliaria.listarImoveis()); // Listar
+        System.out.println("Imóveis cadastrados: ");
+        for (Imovel i : imobiliaria.listarImoveis()) {
+            System.out.println(i);
+        } // Listar
         imovel.setValor(350000.00); // Editar
         funcionario.editarImovel(imovel); // Editar
+
         // funcionario.removerImovel(imovel.getCodigo()); // Remover
         // System.out.println("Imóveis após remoção: " + imobiliaria.listarImoveis());
         // // Listar após remoção
@@ -41,7 +45,11 @@ public class Main {
         // Testando as funcionalidades do Cliente
         System.out.println("\nTestando funcionalidades do Cliente:");
         imobiliaria.cadastrarCliente(cliente); // Cadastrar
-        System.out.println("Clientes cadastrados: " + imobiliaria.listarClientes()); // Listar
+        System.out.println("Clientes cadastrados: ");
+        for (Cliente c : imobiliaria.listarClientes()) {
+            System.out.println(c);
+        } // Listar
+        System.out.println(cliente.buscarImovel("Imov01"));
         cliente.setNome("Carlos Silva Junior"); // Editar
         imobiliaria.editarCliente(cliente); // Editar
         // imobiliaria.removerCliente(cliente.getCpf()); // Remover
@@ -51,9 +59,13 @@ public class Main {
         // Testando as funcionalidades do Funcionario
         System.out.println("\nTestando funcionalidades do Funcionario:");
         imobiliaria.cadastrarFuncionario(funcionario); // Cadastrar
-        System.out.println("Funcionários cadastrados: " + imobiliaria.listarFuncionarios()); // Listar
+        System.out.println("Funcionários cadastrados: ");
+        for (Funcionario f : imobiliaria.listarFuncionarios()) {
+            System.out.println(f);
+        } // Listar
         funcionario.setNome("Carlos Albertinho"); // Editar
         imobiliaria.editarFuncionario(funcionario); // Editar
+
         // imobiliaria.removerFuncionario(funcionario.getCpf()); // Remover
         // System.out.println("Funcionários após remoção: " +
         // imobiliaria.listarFuncionarios()); // Listar após remoção
