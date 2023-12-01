@@ -21,7 +21,10 @@ public class Main {
         // Testando as funcionalidades da Imobiliaria
         System.out.println("Testando funcionalidades da Imobiliaria:");
         imobiliaria.cadastrasImobiliaria(imobiliaria);
-        System.out.println("Imobiliárias cadastradas: " + imobiliaria.listarImobiliarias()); // Listar
+        System.out.println("Imobiliárias cadastradas: "); // Listar
+        for (Imobiliaria imob : imobiliaria.listarImobiliarias()) {
+            System.out.println(imob);
+        }
         imobiliaria.setNome("Imobiliaria ABC"); // Editar
         imobiliaria.editarImobiliaria(imobiliaria); // Editar
         // imobiliaria.removerImobiliaria(imobiliaria.getCnpj()); // Remover
