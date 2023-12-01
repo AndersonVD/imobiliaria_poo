@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        // Inicializando o Banco de Dados
+        // Inicia o Banco de Dados
         BancoDeDados bancoDeDados = new BancoDeDados();
 
         // Criando instâncias das classes
