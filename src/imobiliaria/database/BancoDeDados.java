@@ -10,6 +10,7 @@ import java.util.List;
 import imobiliaria.Cliente;
 import imobiliaria.Foto;
 import imobiliaria.Funcionario;
+import imobiliaria.Imobiliaria;
 import imobiliaria.Imovel;
 
 public class BancoDeDados {
@@ -29,6 +30,44 @@ public class BancoDeDados {
             preparedStatement.setDouble(5, imovel.getArea());
             preparedStatement.setDouble(6, imovel.getValor());
             preparedStatement.setBoolean(7, imovel.isDisponivel());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public List<Imobiliaria> listarImobiliarias() {
+        MySQL bancoDeDados = new MySQL();
+        List<Imobiliaria> listaImobiliarias = new ArrayList<Imobiliaria>();
+        try (Connection conn = bancoDeDados.getConnection(); Statement stmt = conn.createStatement()) {
+            String sql = "SELECT * FROM imobiliaria";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String cnpj = rs.getString("cnpj");
+                String nome = rs.getString("nome");
+                String endereco = rs.getString("endereco");
+                String telefone = rs.getString("telefone");
+                String email = rs.getString("email");
+                Imobiliaria imobiliaria = new Imobiliaria(cnpj, nome, endereco, telefone, email, listaImoveis,
+                        listaClientes);
+                listaImobiliarias.add(imobiliaria);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return listaImobiliarias;
+    }
+
+    public void editarImobiliaria(Imobiliaria imobiliaria) {
+        MySQL bancoDeDados = new MySQL();
+        try (var connection = bancoDeDados.getConnection()) {
+            var sql = "UPDATE imobiliaria SET nome = ?, endereco = ?, telefone = ?, email = ? WHERE cnpj = ?";
+            var preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, imobiliaria.getNome());
+            preparedStatement.setString(2, imobiliaria.getEndereco());
+            preparedStatement.setString(3, imobiliaria.getTelefone());
+            preparedStatement.setString(4, imobiliaria.getEmail());
+            preparedStatement.setString(5, imobiliaria.getCnpj());
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -181,7 +220,7 @@ public class BancoDeDados {
     public void cadastrarFuncionario(Funcionario funcionario) {
         MySQL bancoDeDados = new MySQL();
         try (var connection = bancoDeDados.getConnection()) {
-            var sql = "INSERT INTO funcionario (cpf, nome, endereco, telefone, email) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            var sql = "INSERT INTO funcionario (cpf, nome, endereco, telefone, email) VALUES (?, ?, ?, ?, ?)";
             var preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, funcionario.getCpf());
             preparedStatement.setString(2, funcionario.getNome());
@@ -190,6 +229,32 @@ public class BancoDeDados {
             preparedStatement.setString(5, funcionario.getEmail());
             preparedStatement.executeUpdate();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void cadastrarImobiliaria(Imobiliaria imobiliaria) {
+        MySQL bancoDeDados = new MySQL();
+        try (var connection = bancoDeDados.getConnection()) {
+            var sql = "INSERT INTO imobiliaria (cnpj, nome, endereco, telefone, email) VALUES (?, ?, ?, ?, ?)";
+            var preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, imobiliaria.getCnpj());
+            preparedStatement.setString(2, imobiliaria.getNome());
+            preparedStatement.setString(3, imobiliaria.getEndereco());
+            preparedStatement.setString(4, imobiliaria.getTelefone());
+            preparedStatement.setString(5, imobiliaria.getEmail());
+            preparedStatement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void removerImobiliaria(String cnpj) {
+        MySQL bancoDeDados = new MySQL();
+        try (Connection conn = bancoDeDados.getConnection(); Statement stmt = conn.createStatement()) {
+            String sql = "DELETE FROM imobiliaria WHERE cnpj = '" + cnpj + "'";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
